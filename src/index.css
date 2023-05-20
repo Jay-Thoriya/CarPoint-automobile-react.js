@@ -1,13 +1,16 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css");
+
+
+.Logo{
+  position: absolute;
+  left: 20px;
+  font-size: 25px;
+  color: blue;
+}
+.Logo span{
+  color: red;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+a:link {text-decoration: none; }
+a:hover { text-decoration:overline; }
+a:active { text-decoration: none; }

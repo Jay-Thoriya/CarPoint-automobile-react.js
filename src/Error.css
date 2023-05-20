@@ -1,0 +1,8 @@
+.Error_page{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(24, 200, 216);
+    color: rgb(225, 0, 0);
+    text-align: center;
+    font-size: xx-large;
+}

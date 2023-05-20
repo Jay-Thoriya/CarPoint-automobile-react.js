@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { NevBar } from './Nevbar';
+import Home from './Home';
+import { About } from './About';
+import Cart from './Cart';
+import Contact from './Contact';
+import Error from './Error';
+import { CarApi } from './CarApi';
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+  const { CarData } = CarApi();
+  //console.log(CarData);
+  const [addCartId , setAddCartId] = useState([]);
+  console.log("s",addCartId)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NevBar />
+      <Routes >
+        <Route component={Error} />
+        <Route exact path='/home' Component={() => <Home carInfo={CarData}/>} />
+        <Route exact path='/about' Component={() => <About carInfo={CarData} setAddCartId={setAddCartId} addCartId={addCartId}/> } />
+        <Route exact path='/cart' Component={() => <Cart carInfo={CarData} addCartId={addCartId} />} />
+        <Route exact path='/contact' Component={() => <Contact />} />
+      </Routes>
+
+    </>
   );
 }
 
