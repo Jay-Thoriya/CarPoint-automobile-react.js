@@ -5,8 +5,12 @@ function Contact() {
   const [name , setName] = useState("");
   const [email , setEmail] = useState("");
   const [message , setMessage] = useState("");
+  
+  const [update, setUpdate] = useState(true);
   const handlerSubmit = (e) =>{
+    setUpdate(false);
     e.preventDefault();
+    setTimeout(()=>{ setUpdate(true)},2000)
     const contactDetails = { name , email , message}; 
 
     fetch('http://localhost:8000/contact',{
@@ -114,7 +118,11 @@ function Contact() {
                 <div className="col-md-12">
                   {/*contact button*/}
                   <button className="btn-big btns btn-bg" style={{"border":"1px solid black"}} >
-                    Send Us <i className="fas fa-arrow-right" />
+                  {(!update ?
+              <div class="spinner-border text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+         : "Send Us" )} <i className="fas fa-arrow-right" />
                   </button>
                 </div>
               </div>
