@@ -37,7 +37,7 @@ function Contact() {
                   <i className="fas fa-mobile-alt" />
                 </div>
                 <div className="info-right">
-                  <h4>+91 9952612645</h4>
+                  <h4>+91 8238211904</h4>
                 </div>
               </li>
               <li>

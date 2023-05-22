@@ -159,7 +159,7 @@ function Issue() {
     </div>
     <div className="grid">
       <p className="info-text">
-        Any your car related please note down ? Let us know below:
+      Any problem related to your car please? Let us know below:
       </p>
       <br />
       <div className="controls">
@@ -172,7 +172,7 @@ function Issue() {
           required
         />
       </div>
-      <button type="submit" value="Submit" className="col-1-4">
+      <button type="submit" value="Submit" className="col-1-4 ">
         Submit
       </button>
     </div>

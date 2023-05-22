@@ -16,45 +16,25 @@ function Home(props) {
 
   return (
     <>
+
+
       <div id="carouselExampleDark" className="carousel carousel-dark slide">
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to={0}
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          />
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to={1}
-            aria-label="Slide 2"
-          />
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to={2}
-            aria-label="Slide 3"
-          />
-        </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval={10000}>
+        <div className="carousel-inner  " style={{"width":"80%" , "marginLeft":"150px" }}>
+          <div className="carousel-item active d-block   " data-bs-interval={2000}>
             <img src="https://img.freepik.com/premium-photo/compact-sports-car-family-sedan-3d-illustration_101266-15110.jpg?w=1060" className="d-block w-100" alt="Imag1" />
-            <div className="carousel-caption d-none d-md-block">
-              <h5 style={{ "color": "orange" }}>PERFORMANCE</h5>
+            <div className="carousel-caption d-none d-md-block ">
+              <h5 style={{ "color": "orange" , }}>PERFORMANCE</h5>
               <p>New is about ensuring your free spirit is unshaken with ESP and multi-drive modes. This journey of creating and evoking joy, will be forever. Because the spirit that loves to drive, is exactly that  </p>
             </div>
           </div>
-          <div className="carousel-item" data-bs-interval={2000}>
+          <div className="carousel-item " data-bs-interval={2000}>
             <img src="https://img.freepik.com/premium-photo/white-mid-size-urban-family-sedan-white-uniform-background-3d-rendering_101266-11238.jpg?w=1100" className="d-block w-100" alt="Imag2" />
             <div className="carousel-caption d-none d-md-block">
               <h5 style={{ "color": "white" }}>DESIGN</h5>
               <p>It’s true. Design shouldn’t just look great, it should do great things. But while being new, design needs to evoke a love that’s eternal. Design shouldn’t just be new. It needs to Drive New Forever.</p>
             </div>
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item" data-bs-interval={2000}>
             <img src="https://img.freepik.com/premium-photo/red-premium-business-sedan-car-sports-configuration-white-background-3d-rendering_101266-26555.jpg?w=1100" className="d-block w-100" alt="Imag3" />
             <div className="carousel-caption d-none d-md-block">
               <h5 style={{ "color": "red" }}>SAFETY</h5>
@@ -62,7 +42,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-        <button
+        <button style={{"backgroundColor":"white"}}
           className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleDark"
@@ -71,7 +51,7 @@ function Home(props) {
           <span className="carousel-control-prev-icon" aria-hidden="true" />
           <span className="visually-hidden">Previous</span>
         </button>
-        <button
+        <button style={{"backgroundColor":"transparent"} }
           className="carousel-control-next"
           type="button"
           data-bs-target="#carouselExampleDark"

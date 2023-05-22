@@ -30,9 +30,11 @@
  img {
    max-width: 200%;
    max-height:200%;
+    
  }
  
  .text {
+  
   text-align: end;
    font-size: 70px;
  }
