@@ -16,7 +16,7 @@ function Card(props) {
                     </h1>
                     <span className="price">{props.value.Price}</span>
                     <div className="card-back">
-                        <button onClick={() => {
+                        <button className={"card-btn"}onClick={() => {
                             dispatch({ type: "ADD_CART", payload: props.value.id })
                         }}>Add to cart</button>
                         <a href={`/home#car-${props.value.id}`}>View detail</a>

@@ -95,7 +95,7 @@ function Contact() {
                 </div>
                 <div className="col-md-12">
                   {/*contact button*/}
-                  <button className="btn-big btn btn-bg" style={{"border":"1px solid black"}}>
+                  <button className="btn-big btns btn-bg" style={{"border":"1px solid black"}}>
                     Send Us <i className="fas fa-arrow-right" />
                   </button>
                 </div>

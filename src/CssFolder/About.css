@@ -36,7 +36,7 @@ section .row {
 .card:hover .cover .price {
   transform: translateZ(60px);
 }
-.card:hover .cover a , button{
+.card:hover .cover a , .card-btn{
   transform: translateZ(-60px) rotatey(-180deg);
 }
 .card .cover {
@@ -132,7 +132,7 @@ section .row {
   align-items: center;
   justify-content: center;
 }
-.card .card-back a , button {
+.card .card-back a , .card-btn {
   transform-style: preserve-3d;
   transition: ease transform 2.3s, ease background 0.5s;
   transform: translateZ(-1px) rotatey(-180deg);
@@ -145,7 +145,7 @@ section .row {
   outline: none;
   text-decoration: none;
 }
-.card .card-back a:hover , button:hover{
+.card .card-back a:hover , .card-btn:hover{
   background-color: white;
   color: #0b0f08;
 }
