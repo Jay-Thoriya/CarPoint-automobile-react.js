@@ -17,6 +17,9 @@ export const NevBar = () => {
                         <NavLink exact activeClassName="nav-link" to="cart">Cart</NavLink>
                     </li>
                     <li class="nav-item">
+                        <NavLink exact activeClassName="nav-link" to="issue">Issue</NavLink>
+                    </li>
+                    <li class="nav-item">
                         <NavLink exact activeClassName="nav-link" to='contact'>Contact us</NavLink>
                     </li>
                 </ul>

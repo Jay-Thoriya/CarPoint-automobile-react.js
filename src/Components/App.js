@@ -9,6 +9,7 @@ import Error from './Error';
 import { CarApi } from './CarApi';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import Issue from './Issue';
 
 function App() {
   const { CarData } = CarApi();
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/home' Component={() => <Home carInfo={CarData} />} />
         <Route exact path='/about' Component={() => <About carInfo={CarData} setAddCartId={setAddCartId} addCartId={addCartId} />} />
         <Route exact path='/cart' Component={() => <Cart carInfo={CarData} addCartId={addCartId} />} />
+        <Route exact path='/issue' Component={() => <Issue/> }  />
         <Route exact path='/contact' Component={() => <Contact />} />
       </Routes>
 
