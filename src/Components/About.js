@@ -1,15 +1,15 @@
 
 import './About.css';
 import Card from './Card';
-import { useReducer , createContext} from 'react';
+import { useReducer, createContext } from 'react';
 
 
 const DispatchValue = createContext();
- const About = ({carInfo , addCartId , setAddCartId}) => {
+const About = ({ carInfo, addCartId, setAddCartId }) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD_CART":
-        setAddCartId( addCartId =>( [...addCartId , action.payload]))
+        setAddCartId(addCartId => ([...addCartId, action.payload]))
         break;
 
       default:
@@ -29,4 +29,4 @@ const DispatchValue = createContext();
   );
 }
 
-export{ DispatchValue , About};
+export { DispatchValue, About };

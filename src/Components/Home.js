@@ -8,13 +8,13 @@ import { useLocation } from 'react-router-dom';
 function Home(props) {
 
   let location = useLocation();
-  console.log(location.hash.split("#",2)[1])
-  const pageSection =  location.hash.split("#",2)[1];
+  console.log(location.hash.split("#", 2)[1])
+  const pageSection = location.hash.split("#", 2)[1];
   var element = document.getElementById(pageSection);
-  if(element){
+  if (element) {
     element.scrollIntoView();
   }
-  
+
   return (
     <>
       <div id="carouselExampleDark" className="carousel carousel-dark slide">
@@ -44,7 +44,7 @@ function Home(props) {
           <div className="carousel-item active" data-bs-interval={10000}>
             <img src="https://img.freepik.com/premium-photo/compact-sports-car-family-sedan-3d-illustration_101266-15110.jpg?w=1060" className="d-block w-100" alt="Imag1" />
             <div className="carousel-caption d-none d-md-block">
-              <h5 style={{"color":"orange"}}>FIND THE RIGHT CAR</h5>
+              <h5 style={{ "color": "orange" }}>FIND THE RIGHT CAR</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
@@ -83,8 +83,8 @@ function Home(props) {
         </button>
       </div>
 
-      {props.carInfo.map((i)=><DisplayInfo value={i}/>)}
-    
+      {props.carInfo.map((i) => <DisplayInfo value={i} />)}
+
     </>
 
 
