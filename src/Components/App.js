@@ -10,6 +10,8 @@ import { CarApi } from './CarApi';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Issue from './Issue';
+import {NotificationContainer } from 'react-notifications';
+
 
 function App() {
   const { CarData } = CarApi();
@@ -26,7 +28,7 @@ function App() {
         <Route exact path='/issue' Component={() => <Issue/> }  />
         <Route exact path='/contact' Component={() => <Contact />} />
       </Routes>
-
+      <NotificationContainer/>
     </>
   );
 }

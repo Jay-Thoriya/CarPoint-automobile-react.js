@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import '../CssFolder/Contact.css'
+import {NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function Contact() {
   const [name , setName] = useState("");
@@ -10,15 +12,18 @@ function Contact() {
   const handlerSubmit = (e) =>{
     setUpdate(false);
     e.preventDefault();
-    setTimeout(()=>{ setUpdate(true)},2000)
     const contactDetails = { name , email , message}; 
-
+    
     fetch('http://localhost:8000/contact',{
       method:'POST',
       headers:{"Content-Type": "application/json"},
       body: JSON.stringify(contactDetails)
     }).then(()=>{
-      console.log(" Your Details Is Added ")
+      NotificationManager.success(" your details added ! "," done ",3000)
+       setUpdate(true)
+       setEmail("");
+       setMessage("");
+       setName("");
     })
   }
 
@@ -80,6 +85,7 @@ function Contact() {
                       name="name"
                       className="form-control"
                       id="first-name"
+                      value={name}
                       placeholder="Enter Your Name *"
                       required="required"
                       style={{"border":"1px solid black"}}
@@ -92,6 +98,7 @@ function Contact() {
                       type="email"
                       name="email"
                       className="form-control"
+                      value={email}
                       id="email"
                       placeholder="Enter Your Email *"
                       required="required"
@@ -105,6 +112,7 @@ function Contact() {
                     <textarea
                       rows={4}
                       name="message"
+                      value={message}
                       className="form-control"
                       id="description"
                       placeholder="Enter Your Message *"

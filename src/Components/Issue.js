@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm  } from 'react-hook-form';
 import '../CssFolder/Issue.css'
+import {NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function Issue() {
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [update, setUpdate] = useState(true);
   const onSubmit = (issueDetails) => {
     setUpdate(false)
-    setTimeout(()=>{ setUpdate(true)},2000)
+    
     console.log(JSON.stringify(issueDetails));
 
     fetch('http://localhost:8000/issues', {
@@ -16,7 +18,9 @@ function Issue() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(issueDetails)
     }).then(() => {
-      
+      setUpdate(true);
+      NotificationManager.success(" Your issues are submitted !" , " Thank you for submitting issues",5000)
+      reset();
     })
 
   }
