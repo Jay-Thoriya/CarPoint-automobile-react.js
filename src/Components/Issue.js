@@ -1,7 +1,22 @@
 import React from 'react';
+import {useForm} from 'react-hook-form';
 import '../CssFolder/Issue.css'
 
 function Issue() {
+
+    const { register , handleSubmit} = useForm();
+    const onSubmit = (issueDetails) =>{
+      console.log(JSON.stringify(issueDetails));
+      
+      fetch('http://localhost:8000/issues',{
+      method:'POST',
+      headers:{"Content-Type": "application/json"},
+      body: JSON.stringify(issueDetails)
+    }).then(()=>{
+      console.log(" Your Details Is Added ")
+    })
+      
+    }
   return (
     <>
   <link
@@ -9,8 +24,8 @@ function Issue() {
     id="bootstrap-css"
   />
 
-  <form action="">
-    <div className="form-group">
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="form-group needs-validation">
       <center>
         <h1>
           <u className="thick">Adding a Car issue problem</u>
@@ -21,13 +36,14 @@ function Issue() {
       <br />
       <h2 className="heading">Owner Details</h2>
       <div className="controls">
-        <input type="text" id="name" className="floatLabel" placeholder='Name' name="name" />
+        <input type="text" id="name" className="floatLabel" placeholder='Name' {...register("name")} required />
+        
       </div>
       <div className="controls">
-        <input type="text" id="email" className="floatLabel" placeholder='Email' name="email" />
+        <input type="email" id="email" className="floatLabel" placeholder='Email' {...register("email")} required />
       </div>
       <div className="controls">
-        <input type="tel" id="phone" className="floatLabel" placeholder='Phone' name="phone" />
+        <input type="number" id="phone" className="floatLabel" placeholder='Phone' {...register("phone")} required />
       </div>
       <div className="grid">
         <div className="col-2-3">
@@ -36,7 +52,7 @@ function Issue() {
               type="text"
               id="street"
               className="floatLabel"
-              name="street"
+              {...register("street")}
               placeholder='Street'
             />
           </div>
@@ -47,7 +63,7 @@ function Issue() {
               type="number"
               id="street-number"
               className="floatLabel"
-              name="street-number"
+              {...register("street-number")}
               placeholder='House No.'
             />
           </div>
@@ -56,7 +72,7 @@ function Issue() {
       <div className="grid">
         <div className="col-2-3">
           <div className="controls">
-            <input type="text" id="city" className="floatLabel" name="city" placeholder='City'/>
+            <input type="text" id="city" className="floatLabel" {...register("city")}  placeholder='City' required/>
           </div>
         </div>
         <div className="col-1-3">
@@ -65,14 +81,15 @@ function Issue() {
               type="text"
               id="post-code"
               className="floatLabel"
-              name="post-code"
-              placeholder='Post Code'
+              {...register("post-code")}
+              placeholder='Post Code' 
+              required
             />
           </div>
         </div>
       </div>
       <div className="controls">
-        <input type="text" id="country" className="floatLabel" name="country" placeholder='CoUntry'/>
+        <input type="text" id="country" className="floatLabel" {...register("country")}  placeholder='Country' required/>
       </div>
     </div>
     <div className="form-group">
@@ -81,7 +98,7 @@ function Issue() {
         {" "}
         <div className="col-1-3">
           <div className="controls">
-            <input type="text" id="regno" className="floatLabel" name="regno" placeholder='Reg. Number' />
+            <input type="text" id="regNo" className="floatLabel" {...register("regNo")}  placeholder='Reg. Number' required />
           </div>
         </div>
       </div>{" "}
@@ -91,10 +108,11 @@ function Issue() {
           <div className="controls">
             <input
               type="text"
-              id="carmodel"
+              id="carModel"
               className="floatLabel"
-              name="carmodel"
+              {...register("carModel")}
               placeholder='Car Model'
+              required
             />
           </div>
         </div>
@@ -104,7 +122,7 @@ function Issue() {
               type="number"
               id="something"
               className="floatLabel"
-              name="something"
+              {...register("something")}
               placeholder='Something'
             />
           </div>
@@ -117,9 +135,9 @@ function Issue() {
           <h4>Reg. Year</h4>
             <input
               type="date"
-              id="regyear"
+              id="regYear"
               className="floatLabel"
-              name="regyear"
+              {...register("regYear")}
             />
             
           </div>
@@ -129,9 +147,10 @@ function Issue() {
           <div className="controls">
             <input
               type="date"
-              id="modelyear"
+              id="modelYear"
               className="floatLabel"
-              name="modelyear"
+              required
+              {...register("modelYear")}
             />
             
           </div>
@@ -145,11 +164,12 @@ function Issue() {
       <br />
       <div className="controls">
         <textarea
-          name="comments"
+        {...register("comments")}
           className="floatLabel"
           id="comments"
           defaultValue={""}
           placeholder='Comments'
+          required
         />
       </div>
       <button type="submit" value="Submit" className="col-1-4">
