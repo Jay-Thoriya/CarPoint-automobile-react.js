@@ -1,5 +1,5 @@
 
-import './About.css';
+import '../CssFolder/About.css';
 import Card from './Card';
 import { useReducer, createContext } from 'react';
 

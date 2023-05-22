@@ -1,7 +1,6 @@
 import React from 'react'
 
 function CartProduct({car}) {
-  console.log("props",car)
   return (
     <div id="contain">
   {/* Start	Product details */}

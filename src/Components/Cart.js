@@ -1,12 +1,10 @@
 import React from 'react'
-import './Cart.css'
+import '../CssFolder/Cart.css'
 import CartProduct from './CartProduct';
 
 function Cart({ carInfo, addCartId }) {
-  console.log(carInfo)
 
   const filteredCarInfo = carInfo.filter((car) => addCartId.includes(car.id));
-  console.log("filteredCarInfo : ", filteredCarInfo)
   return (
     <div>
       {filteredCarInfo.length > 0 ? (

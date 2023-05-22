@@ -1,5 +1,5 @@
 
-import './App.css';
+import '../CssFolder/App.css';
 import { NevBar } from './Nevbar';
 import Home from './Home';
 import { About } from './About';
@@ -12,9 +12,7 @@ import { useState } from 'react';
 
 function App() {
   const { CarData } = CarApi();
-  //console.log(CarData);
   const [addCartId, setAddCartId] = useState([]);
-  console.log("s", addCartId)
   return (
     <>
       <NevBar />
