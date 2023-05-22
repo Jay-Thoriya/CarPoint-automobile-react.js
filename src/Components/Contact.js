@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../CssFolder/Contact.css'
 
 function Contact() {
+  const [name , setName] = useState("");
+  const [email , setEmail] = useState("");
+  const [message , setMessage] = useState("");
+  const handlerSubmit = (e) =>{
+    e.preventDefault();
+    const contactDetails = { name , email , message}; 
+
+    fetch('http://localhost:8000/contact',{
+      method:'POST',
+      headers:{"Content-Type": "application/json"},
+      body: JSON.stringify(contactDetails)
+    }).then(()=>{
+      console.log(" Your Details Is Added ")
+    })
+  }
+
   return (
     <section
   className="section-bg"
@@ -46,7 +62,7 @@ function Contact() {
         <div className="col-lg-6 d-flex align-items-center">
           <div className="contact-form">
             {/*Contact Form*/}
-            <form id="contact-form" method="POST">
+            <form id="contact-form" onSubmit={handlerSubmit}>
               <input
                 type="hidden"
                 name="form-name"
@@ -63,7 +79,7 @@ function Contact() {
                       placeholder="Enter Your Name *"
                       required="required"
                       style={{"border":"1px solid black"}}
-                    />
+                    onChange={e => setName(e.target.value)}/>
                   </div>
                 </div>
                 <div className="col-md-12">
@@ -76,6 +92,7 @@ function Contact() {
                       placeholder="Enter Your Email *"
                       required="required"
                       style={{"border":"1px solid black"}}
+                      onChange={e => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
@@ -90,12 +107,13 @@ function Contact() {
                       required="required"
                       defaultValue={""}
                       style={{"border":"1px solid black"}}
+                      onChange={e => setMessage(e.target.value)}
                     />
                   </div>
                 </div>
                 <div className="col-md-12">
                   {/*contact button*/}
-                  <button className="btn-big btns btn-bg" style={{"border":"1px solid black"}}>
+                  <button className="btn-big btns btn-bg" style={{"border":"1px solid black"}} >
                     Send Us <i className="fas fa-arrow-right" />
                   </button>
                 </div>
